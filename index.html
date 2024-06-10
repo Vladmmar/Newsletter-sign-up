@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Newsletter sign-up</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="text-container">
+            <h1 id="header">Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul>
+                <li>Product discovery and building what matters</li>
+                <li>Measuring to ensure updates are a success</li>
+                <li>And much more!</li>
+            </ul>
+            <p id="email-text">Email address</p>
+            <p id="invalid-email">Valid email required</p>
+            <input oninput="removeInvalid()" placeholder="email@company.com" type="text" name="email" id="email-input"/>
+            <button onclick="checkEmail()">
+                Subscribe to monthly newsletter
+            </button>
+        </div>
+        <img id="image-banner" src="./images/illustration-sign-up-desktop.svg"/>
+    </div>
+    <div class="success-message" style="display:none">
+        <img src="./images/icon-success.svg">
+        <h1>Thanks for subscribing!</h1>
+        <button>
+            Dismiss message
+        </button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
