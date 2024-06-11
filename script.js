@@ -1,5 +1,12 @@
 const emailInput = document.getElementById("email-input")
 const invalidInput = document.getElementById("invalid-email")
+const form = document.getElementById("form")
+
+let isSuccess = false;
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+})
 
 function checkEmail(){
     let input = emailInput.value.trim().split("");
@@ -9,8 +16,8 @@ function checkEmail(){
             chars[value] = chars[value] ? chars[value] + 1 : 1;
         }
     })
-
-    if(input.length <= 0 || !input.includes("@") || !input.includes(".") || chars["@"] > 1 || chars["."] > 1){
+    
+    if(input.length <= 0 || !input.includes("@") || !input.includes(".") || !input[input.length - 1] == '.' || chars["@"] > 1 || chars["."] > 1){
         emailInput.classList.add("invalid-input")
         invalidInput.classList.add("invalid-input")
     } else{
@@ -20,20 +27,27 @@ function checkEmail(){
 
         emailInput.classList.remove("invalid-input")
         invalidInput.classList.remove("invalid-input")
-        window.alert("Everything is correct")
 
         form[0].style.display = "none"
         success[0].style.display = "block"
         
-        const confirmation = document.createElement('p') 
-        confirmation.textContent = `A confirmation email has been sent to ${emailInput.value}. Please open it and 
-                                    click the button inside to confirm your subscription`
-        success[0].insertBefore(confirmation, buttons[1])
-
+        if(isSuccess === false){
+            const confirmation = document.createElement('p') 
+            confirmation.classList.add("confirmation-text")
+            confirmation.innerHTML = `A confirmation email has been sent to <span style="font-weight: 700">${emailInput.value}</span>. Please open it and 
+                                        click the button inside to confirm your subscription`
+            success[0].insertBefore(confirmation, buttons[1])
+        } else{
+            const confirmation = document.getElementsByClassName("confirmation-text")
+            confirmation[0].innerHTML = `A confirmation email has been sent to <span style="font-weight: 700">${emailInput.value}</span>. Please open it and 
+                                        click the button inside to confirm your subscription`
+        }
+        
         buttons[1].addEventListener("click", () => {
             success[0].style.display = "none"
             form[0].style.display = "flex"
         })
+        isSuccess = true;
     }
 }
 
@@ -43,3 +57,16 @@ function removeInvalid(){
         invalidInput.classList.remove("invalid-input")
     }
 }
+
+const imageDesktop = document.getElementById("image-desktop")
+const imageMobile = document.getElementById("image-mobile")
+
+window.addEventListener('resize', () => {
+    if(window.innerWidth <= 800){
+        imageDesktop.style.display = "none"
+        imageMobile.style.display = "block"
+    } else{
+        imageMobile.style.display = "none"
+        imageDesktop.style.display = "block"
+    }
+})

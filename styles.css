@@ -24,58 +24,74 @@ body{
 
 .form-container{
     background-color: var(--White);
-    width: 65vw;
-    height: 90vh;
+    width: 75vw;
     border-radius: 24px;
     padding: 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
-.text-container{
-    padding: 40px;
+form{
+    padding: 40px 60px 40px 40px;
     height: 100%;
+    flex: 1;
 }
 
 #header{
-    margin: 0 0 20px;
-    font-size: 2.8rem;
+    margin: 0 0 24px;
+    font-size: 56px;
     font-weight: 700;
 }
 
-#image-banner{
-    height: 100%;
+form p{
+    margin: 0;
+}
+
+#image-desktop{
+    height: 60vh;
 }
 
 ul{
-    list-style-image: url("./images/Untitled.svg");
-    padding: 0;      
-    padding-right: 0;   
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    list-style-position: inside;
 }   
 
 li{
-    margin: 12px;
-    margin-left: 28px;
-    position: relative;
-    vertical-align: middle;
+    margin: 16px;
+    margin-left: 0;
 }
 
-li::before{
-    vertical-align: middle;
+li img{
+    position: relative;
+    top: 0.28vh;
+}
+
+li:first-child{
+    margin-top: 0;
+}
+
+li:last-child{
+    margin-bottom: 0;
+}
+
+li span{
+    display: inline-block;
+    margin-left: 10px;
 }
 
 #email-text{
     font-size: 12px;
     font-weight: 700;
-    margin: 20px 0 12px;
+    margin: 16px 0 12px;
     display: inline-block;
 }
 
 #invalid-email{
     font-size: 12px;
     font-weight: 700;
-    margin: 20px 0 12px;
+    margin: 16px 0 12px;
     float: right;
     display: none;
 }
@@ -110,4 +126,35 @@ button{
     padding: 16px;
     text-align: center;
     cursor: pointer;
+    transition: filter 200ms linear;
+}
+
+button:hover{
+    background: linear-gradient(90deg, hsl(349, 100%, 66%), hsl(13, 97%, 63%));
+    filter: drop-shadow(0px 5px 15px hsla(13, 97%, 63%, 0.7));
+}
+
+.success-message{
+    background-color: var(--White);
+    border-radius: 24px;
+    padding: 48px 66px;
+    font-size: 16px;
+    max-width: 35vw;
+}
+
+.success-message h1{
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1em;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.success-message button{
+    margin-bottom: 12px;
+    transition: filter 200ms linear;
+}
+
+.success-message button:hover{
+    filter: drop-shadow(0px 5px 15px hsla(13, 97%, 63%, 0.7));
 }
