@@ -64,12 +64,22 @@ function removeInvalid(){
 const imageDesktop = document.getElementById("image-desktop")
 const imageMobile = document.getElementById("image-mobile")
 
+if(window.innerWidth <= 700) mobileImage("on")
+
 window.addEventListener('resize', () => {
     if(window.innerWidth <= 700){
+        imageMobile("on")
+    } else{
+        imageMobile("off")
+    }
+})
+
+function mobileImage(arg){
+    if(arg == "on"){
         imageDesktop.style.display = "none"
         imageMobile.style.display = "block"
     } else{
         imageMobile.style.display = "none"
         imageDesktop.style.display = "block"
     }
-})
+}
