@@ -24,19 +24,22 @@ function checkEmail(){
         const form = document.getElementsByClassName("form-container")
         const success = document.getElementsByClassName("success-message")
         const buttons = document.querySelectorAll("button")
+        const info = document.getElementsByClassName("info")
+
+        console.log(buttons)
 
         emailInput.classList.remove("invalid-input")
         invalidInput.classList.remove("invalid-input")
 
         form[0].style.display = "none"
-        success[0].style.display = "block"
+        success[0].style.display = "flex"
         
         if(isSuccess === false){
             const confirmation = document.createElement('p') 
             confirmation.classList.add("confirmation-text")
             confirmation.innerHTML = `A confirmation email has been sent to <span style="font-weight: 700">${emailInput.value}</span>. Please open it and 
                                         click the button inside to confirm your subscription`
-            success[0].insertBefore(confirmation, buttons[1])
+            info[0].appendChild(confirmation)
         } else{
             const confirmation = document.getElementsByClassName("confirmation-text")
             confirmation[0].innerHTML = `A confirmation email has been sent to <span style="font-weight: 700">${emailInput.value}</span>. Please open it and 
@@ -62,7 +65,7 @@ const imageDesktop = document.getElementById("image-desktop")
 const imageMobile = document.getElementById("image-mobile")
 
 window.addEventListener('resize', () => {
-    if(window.innerWidth <= 800){
+    if(window.innerWidth <= 700){
         imageDesktop.style.display = "none"
         imageMobile.style.display = "block"
     } else{
