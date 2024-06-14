@@ -215,6 +215,7 @@ button:hover{
 @media (max-width: 500px){
     body{
         background-color: var(--White);
+        height: 100dvh;
     }
     .form-container{
         height: 100%;
