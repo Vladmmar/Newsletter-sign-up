@@ -228,12 +228,15 @@ button:hover{
     #header{
         font-size: 40px;
     }
+    .info h1{
+        font-size: 48px;
+    }
     form{
         padding: 0;
     }
     .text-container{
         padding: 40px 20px 30px;
-        height: calc(100vh - (100vw * 0.757));
+        height: calc(100dvh - (100dvw * 0.757));
     }
     #email-text, #invalid-email{
         margin-top: 6px
