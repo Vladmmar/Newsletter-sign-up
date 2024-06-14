@@ -1,6 +1,7 @@
 const emailInput = document.getElementById("email-input")
 const invalidInput = document.getElementById("invalid-email")
 const form = document.getElementById("form")
+const buttons = document.querySelectorAll("button")
 
 let isSuccess = false;
 
@@ -23,7 +24,6 @@ function checkEmail(){
     } else{
         const form = document.getElementsByClassName("form-container")
         const success = document.getElementsByClassName("success-message")
-        const buttons = document.querySelectorAll("button")
         const info = document.getElementsByClassName("info")
 
         console.log(buttons)
@@ -38,12 +38,12 @@ function checkEmail(){
             const confirmation = document.createElement('p') 
             confirmation.classList.add("confirmation-text")
             confirmation.innerHTML = `A confirmation email has been sent to <span style="font-weight: 700">${emailInput.value}</span>. Please open it and 
-                                        click the button inside to confirm your subscription`
+                                        click the button inside to confirm your subscription.`
             info[0].appendChild(confirmation)
         } else{
             const confirmation = document.getElementsByClassName("confirmation-text")
             confirmation[0].innerHTML = `A confirmation email has been sent to <span style="font-weight: 700">${emailInput.value}</span>. Please open it and 
-                                        click the button inside to confirm your subscription`
+                                        click the button inside to confirm your subscription.`
         }
         
         buttons[1].addEventListener("click", () => {
@@ -53,6 +53,20 @@ function checkEmail(){
         isSuccess = true;
     }
 }
+
+const btnBackground = document.querySelectorAll(".button-background")
+
+buttons.forEach((el, idx, arr) => {
+    el.addEventListener("mouseover", () => {
+        btnBackground[idx].style.opacity = '1'
+        el.firstElementChild.style.filter = "drop-shadow(0px 5px 10px hsla(13, 97%, 63%, 0.7))"
+    })
+    
+    el.addEventListener("mouseout", () => {
+        btnBackground[idx].style.opacity = '0'
+        el.firstElementChild.style.filter = "none"
+    })
+})
 
 function removeInvalid(){
     if([...emailInput.classList].includes("invalid-input")){
