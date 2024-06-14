@@ -252,7 +252,7 @@ button:hover{
     }
     .text-container{
         padding: 40px 20px 30px;
-        height: calc(100dvh - (100dvw * 0.757));
+        height: calc(100dvh - (100dvw * 0.757));    
     }
     #email-text, #invalid-email{
         margin-top: 6px
@@ -264,12 +264,12 @@ button:hover{
     .button-container button{
         margin-top: 30px;
     }
-    .button-container{
+    /*.button-container{
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: end;
-    }
+    }*/
     #image-mobile{
         border-radius: 0;
     }
